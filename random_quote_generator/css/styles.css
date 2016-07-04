@@ -1,0 +1,43 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%; }
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #c9e8e6; }
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background: #c6ccb3; }
+
+.header-title {
+  margin: 0;
+  font-size: 3em; }
+
+main {
+  display: flex;
+  flex: 1;
+  justify-content: center; }
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  width: 60%;
+  max-width: 960px;
+  background: #343432; }
+
+#quote-message, #quote-author {
+  margin-top: 0; }
+
+/*# sourceMappingURL=styles.css.map */

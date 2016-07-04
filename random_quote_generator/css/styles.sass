@@ -1,0 +1,48 @@
+// Fixes
+*, *:before, *:after
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+html, body
+  height: 100%
+
+// Flex Wrapper
+.flex-wrapper
+  display: flex
+  flex-direction: column
+  height: 100%
+  background: hsla(175, 40%, 85%, 1)
+
+// Header
+header
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 1em
+  background: hsla(75, 20%, 75%, 1)
+
+.header-title
+  margin: 0
+  font:
+    size: 3em
+
+// Main
+main
+  display: flex
+  flex: 1
+  justify-content: center
+
+
+// Main Content
+.main-content
+  display: flex
+  justify-content: center
+  text-align: center
+  flex-direction: column
+  width: 60%
+  max-width: 960px
+  background: hsla(60, 1%, 20%, 1)
+  
+#quote-message, #quote-author
+  margin-top: 0
