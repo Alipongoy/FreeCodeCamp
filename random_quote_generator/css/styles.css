@@ -10,14 +10,14 @@ html, body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #c9e8e6; }
+  background: url("../img/kanye_background.png") no-repeat center center;
+  background-size: cover; }
 
 header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em;
-  background: #c6ccb3; }
+  padding: 1em; }
 
 .header-title {
   margin: 0;
@@ -34,8 +34,7 @@ main {
   text-align: center;
   flex-direction: column;
   width: 60%;
-  max-width: 960px;
-  background: #343432; }
+  max-width: 960px; }
 
 #quote-message, #quote-author {
   margin-top: 0; }
