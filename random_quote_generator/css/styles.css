@@ -36,7 +36,12 @@ main {
   width: 60%;
   max-width: 960px; }
 
-#quote-message, #quote-author {
+#quote-message {
   margin-top: 0; }
+
+#quote-refresh {
+  display: inline-block; }
+  #quote-refresh p {
+    display: inline-block; }
 
 /*# sourceMappingURL=styles.css.map */
