@@ -5,6 +5,8 @@ function randomQuoteGenerator() {
 }
 
 $("document").ready(function(event) {
-  var randomQuote = randomQuoteGenerator();
-  $("#quote-message").text(randomQuote);
+  console.log("test");
+  $("#quote-refresh").on('click', function() {
+    $("#quote-message").text(randomQuoteGenerator());
+  });
 });

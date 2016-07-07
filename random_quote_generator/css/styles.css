@@ -31,6 +31,7 @@ main {
 .main-content {
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
   flex-direction: column;
   width: 60%;
@@ -40,8 +41,14 @@ main {
   margin-top: 0; }
 
 #quote-refresh {
-  display: inline-block; }
+  display: inline-block;
+  padding: 0.75em 1.25em;
+  background: #fff;
+  border: 2px solid #000;
+  transition-duration: 0.25s; }
+  #quote-refresh:hover {
+    transition-duration: 0.25s;
+    background: #000;
+    color: #fff; }
   #quote-refresh p {
-    display: inline-block; }
-
-/*# sourceMappingURL=styles.css.map */
+    margin: 0; }
