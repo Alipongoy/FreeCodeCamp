@@ -1,15 +1,16 @@
+
 // Global Variables
 var api_key = '014428d375f4624f4e034a28c1de666a';
 
 function findBiggestWidth(widthArray) {
-  return widthArray.reduce(function(prevElement, currentElement){
-    return (prevElement > currentElement) ? prevElement : currentElement; 
+  return widthArray.reduce(function(prevElement, currentElement) {
+    return (prevElement > currentElement) ? prevElement : currentElement;
   });
 }
 
 function getWidthsArray() {
   var children = $(".body-info").children();
-  return children.map(function(_, value){
+  return children.map(function(_, value) {
     return $(value).width();
   }).toArray();
 }
@@ -20,14 +21,26 @@ function setWidthAndHeight(largestWidth) {
 }
 
 // Sets the weather
-function setWeather(responseObject) {
+function setWeather(responseObject, attr = "imperial") {
   $("#city-name").text(responseObject.name + ', ' + responseObject.sys.country);
-  $("#temperature").text(responseObject.main.temp.toFixed(1) + ' °F');
+  
+  if (attr === "imperial") {
+    $("#temperature").text(responseObject.main.temp.toFixed(1) + ' °F');
+    $("#temperature").removeAttr("metric");
+    $("#temperature").attr("imperial", true);
+  }
+  
+  else if (attr === "metric") {
+    $("#temperature").text(responseObject.main.temp.toFixed(1) + ' °C');
+    $("#temperature").removeAttr("imperial");
+    $("#temperature").attr("metric", true);
+  }
+  
   $("#status").text(responseObject.weather[0].main);
 }
 
 // This changes the background depending on the type of weather
-function changeBackground(){
+function changeBackground() {
   var weatherToBackground = {
     "Thunderstorm": "http://cdn.calm.com/scenes/scene-N0LlltMMDH.mp4?v=1417688424364",
     "Drizzle": "http://cdn.calm.com/scenes/scene-N0LlltMMDH.mp4?v=1417688424364",
@@ -41,40 +54,33 @@ function changeBackground(){
   var background = weatherToBackground[$("#status").text()];
   if (background === null)
     background = "http://cdn.calm.com/scenes/scene-6pNLkdGkUn.mp4?v=1417688433921";
-
-  console.log($(".background-video").attr("src", background));
+  $(".background-video").attr("src", background);
 }
 
-function accessAPI() {
-  var xhr = new XMLHttpRequest();
+function accessAPI(units = "imperial", toggle = false) {
+  // This gathers latitude and longitude
+  $.getJSON("http://ip-api.com/json", function(data) {
+    var latitude = data.lat;
+    var longitude = data.lon;
+    var locationString = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=' + units + '&appid=' + api_key;
 
-  // If location is turned on, this runs
-  if (navigator.geolocation) {
-
-    navigator.geolocation.getCurrentPosition(function(position){
-      var latitude = position.coords.latitude.toFixed(3);
-      var longitude = position.coords.longitude.toFixed(3);
-
-      var locationString = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=imperial';
-      console.log(locationString);
-
-
-
-      xhr.open('GET', locationString + '&APPID=' + api_key, false);
-      xhr.send();
-
-      var responseObject = JSON.parse(xhr.response);
-      console.log(responseObject);
-
-      setWeather(responseObject);
-
-      changeBackground();
+    $.getJSON(locationString, function(responseobject) {
+      setWeather(responseobject, units);
+      if (toggle === false)
+        changeBackground();
     });
-  }
+  });
 }
 
-$(document).ready(function(event){
+// Changes units
+
+$(document).ready(function(event) {
   var biggestWidth = findBiggestWidth(getWidthsArray());
   setWidthAndHeight(biggestWidth);
   accessAPI();
+  
+  // This runs if button is clicked
+  $(".body-info").click(function(event){
+    ($("#temperature").attr("imperial") === "true") ? accessAPI("metric", true) : accessAPI("imperial", true);
+  });
 });

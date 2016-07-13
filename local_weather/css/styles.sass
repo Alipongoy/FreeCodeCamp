@@ -10,6 +10,7 @@ html, body
 
 // Variables
 $background-color: #f0f
+$button-color: hsla(0, 125, 125, 0.65)
 
 // Body
 body
@@ -36,17 +37,17 @@ body
 
 .body-info
   border-radius: 100%
-  //width: 250px
-  //height: 250px
   display: flex
   justify-content: center
   align-items: center
   flex-direction: column
-  //padding: 50px
-  border: 5px solid #fff
   z-index: 5
   position: relative
-  //overflow: hidden
+  transition: 0.15s ease-in-out
+  
+  // Hover
+  &:hover
+    border: 5px solid #000
 
   // Pseudo element before
   &:before
@@ -57,11 +58,12 @@ body
     right: 0
     bottom: 0
     border-radius: 100%
-    background: hsla(0, 125, 125, 0.65)
+    background: $button-color
     z-index: -5
-
+  
   h1
-    margin: 0.6rem 0
+    margin: 0.3rem 0
+    font-weight: 500
     white-space: nowrap
     &:first-child
       margin-top: 0
