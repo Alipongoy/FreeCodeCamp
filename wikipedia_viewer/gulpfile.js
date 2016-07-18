@@ -2,7 +2,7 @@ var gulp = require('gulp'),
 		sass = require('gulp-sass'),
 		browserSync = require('browser-sync').create();
 
-gulp.task('default', ['sass'], function(){
+gulp.task('serve', ['sass'], function(){
 	browserSync.init({
 		server: "."
 	});
@@ -19,4 +19,4 @@ gulp.task('sass', function(){
 				.pipe(browserSync.stream());
 });
 
-gulp.task('serve', ['default']);
+gulp.task('default', ['serve']);

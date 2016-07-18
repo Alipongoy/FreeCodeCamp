@@ -1,0 +1,27 @@
+@import "bourbon/bourbon"
+
+// Fixes
+*, *:before, *:after
+  box-sizing: border-box
+
+body, html
+  height: 100%
+
+// Variables
+$background-color: hsla(255, 50, 25, 0.5)
+
+// Wrapper
+.wrapper
+  padding-top: 1px
+  height: 100%
+  background: $background-color
+  @include display(flex)
+  @include justify-content(center)
+  @include align-items(center)
+
+.body-search-bar
+  width: 80%
+  height: 4em
+  display: block
+  border-radius: 5px
+  border: 1px solid #fff
