@@ -8,7 +8,11 @@ body, html
   height: 100%
 
 // Variables
-$background-color: hsla(255, 50, 25, 0.5)
+$background-color: hsla(248, 75%, 71%, 1)
+
+// Body
+body
+  font-family: 'Montserrat', sans-serif;
 
 // Wrapper
 .wrapper
@@ -16,12 +20,64 @@ $background-color: hsla(255, 50, 25, 0.5)
   height: 100%
   background: $background-color
   @include display(flex)
-  @include justify-content(center)
+  @include flex-direction(column)
   @include align-items(center)
+  @include justify-content(center)
+  position: relative
 
-.body-search-bar
-  width: 80%
-  height: 4em
+// Body text
+.center-body-text
+  position: absolute
+  top: 1.9rem
+  text-align: center
+  width: 100%
+  margin: 0
+  font-size: 2.5rem
+
+// Body search bar
+#body-input
   display: block
+  width: 85%
+  height: 3.35em
   border-radius: 5px
-  border: 1px solid #fff
+  border: 1px solid #fefefe
+  margin-bottom: 15px
+  position: relative
+
+// Body search bar
+.body-search-bar
+  width: 100%
+  height: 100%
+  padding: 0 0 0 20px 
+  border: none
+
+  &:focus
+    outline: none
+
+// Input submit button
+.body-submit
+  position: absolute
+  top: -1px
+  right: -1px
+  bottom: -1px
+  width: 50px
+  border: none
+  padding: 0
+  border-radius: 0 3px 3px 0
+  background: hsla(0, 0%, 83%, 1)
+
+  &:focus
+    outline: none
+
+// Input button
+.fa-search 
+  font-size: 1.3em
+
+
+
+// Body random button
+#random-button
+  background: hsla(55, 76%, 71%, 1) 
+  border-radius: 3px
+  border: none
+  padding: 0.45rem

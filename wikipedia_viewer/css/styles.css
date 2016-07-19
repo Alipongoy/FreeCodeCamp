@@ -4,10 +4,13 @@
 body, html {
   height: 100%; }
 
+body {
+  font-family: 'Montserrat', sans-serif; }
+
 .wrapper {
   padding-top: 1px;
   height: 100%;
-  background: rgba(48, 32, 96, 0.5);
+  background: #8c7eed;
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -15,6 +18,25 @@ body, html {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
   -webkit-box-pack: center;
   -moz-box-pack: center;
   box-pack: center;
@@ -24,19 +46,51 @@ body, html {
   -o-justify-content: center;
   justify-content: center;
   -ms-flex-pack: center;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center; }
+  position: relative; }
+
+.center-body-text {
+  position: absolute;
+  top: 1.9rem;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  font-size: 2.5rem; }
+
+#body-input {
+  display: block;
+  width: 85%;
+  height: 3.35em;
+  border-radius: 5px;
+  border: 1px solid #fefefe;
+  margin-bottom: 15px;
+  position: relative; }
 
 .body-search-bar {
-  width: 80%;
-  height: 4em;
-  display: block;
-  border-radius: 5px;
-  border: 1px solid #fff; }
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0 20px;
+  border: none; }
+  .body-search-bar:focus {
+    outline: none; }
+
+.body-submit {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  width: 50px;
+  border: none;
+  padding: 0;
+  border-radius: 0 3px 3px 0;
+  background: #d4d4d4; }
+  .body-submit:focus {
+    outline: none; }
+
+.fa-search {
+  font-size: 1.3em; }
+
+#random-button {
+  background: #ede47d;
+  border-radius: 3px;
+  border: none;
+  padding: 0.45rem; }

@@ -2,13 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script> 
   <title>Wikipedia Viewer</title>
 </head>
 <body>
   <div class="wrapper">
-    <input type="text" class="body-search-bar">
+    <h1 class="center-body-text">Wikipedia Viewer</h1>
+    <div id="body-input">
+      <input type="text" class="body-search-bar" placeholder="Which wikipedia article would you like to see?">
+      <button class="body-submit">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </div>
+    <button id="random-button">Give me a random one!</button>
   </div>
+  <script src="js/main.js"></script>
 </body>
 </html>
