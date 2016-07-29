@@ -1,4 +1,3 @@
-
 // Global Variables
 var api_key = '014428d375f4624f4e034a28c1de666a';
 
