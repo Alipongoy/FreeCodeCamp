@@ -1,6 +1,5 @@
 function toggleTextSearch(){
   var bodySearch = $(".body-search-bar");
-
   bodySearch.focus(function(){
     bodySearch.attr("placeholder", "");
   });
@@ -42,9 +41,9 @@ function searchPage(urlToSearch){
     type: 'GET',
     headers: { 'Api-User-Agent': 'Example/1.0' },
     success: function(data) {
-      console.log(data);
+      console.log(data.parse.text["*"]);
     }
-} );
+  });
 }
 
 $(document).ready(function(){
