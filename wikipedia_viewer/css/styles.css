@@ -75,9 +75,9 @@ body {
 
 .body-submit {
   position: absolute;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
+  top: 0;
+  right: 0;
+  bottom: 0;
   width: 50px;
   border: 1px solid #c9c9c9;
   border-left: none;

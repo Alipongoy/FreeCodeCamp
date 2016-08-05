@@ -34,20 +34,32 @@ function toggleButtonFade() {
   });
 }
 
-function searchPage(urlToSearch){
-  $.ajax( {
-    url: urlToSearch,
-    dataType: 'jsonp',
-    type: 'GET',
-    headers: { 'Api-User-Agent': 'Example/1.0' },
-    success: function(data) {
-      console.log(data.parse.text["*"]);
+// Searches articles and generates them into code
+function searchPage(){
+  // Registers enter key as button press
+  $(".body-search-bar").keyup(function(keycode){
+    if (keycode.keyCode === 13 && $(this).val() !== "") {
+      $(".body-submit").click();
     }
+  });
+
+  // Runs when button is clicked
+  $(".body-submit").click(function(event){
+    $(".center-body-text").hide(500);
+    $("#random-button").hide(500);
+  });
+}
+
+// Generates random web page
+function searchRandom() {
+  $("#random-button").click(function(event){
+    window.open("https://en.wikipedia.org/wiki/Special:Random", "_blank");
   });
 }
 
 $(document).ready(function(){
   toggleTextSearch();
   toggleButtonFade();
-  searchPage("http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Jimi_Hendrix");
+  searchPage();
+  searchRandom();
 });
