@@ -56,13 +56,18 @@ body {
   margin: 0;
   font-size: 2.5rem; }
 
-#body-input {
+.body-input {
   display: block;
   width: 85%;
   height: 3.35em;
   border-radius: 5px;
   margin-bottom: 15px;
-  position: relative; }
+  position: relative;
+  transition: 750ms ease-in-out;
+  top: 0; }
+
+.to-top {
+  top: -42.5%; }
 
 .body-search-bar {
   width: 100%;
@@ -97,3 +102,7 @@ body {
   border-radius: 3px;
   border: 1px solid #e1d123;
   padding: 0.65rem; }
+
+.text {
+  width: 85%;
+  background: #fff; }

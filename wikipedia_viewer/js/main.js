@@ -47,6 +47,8 @@ function searchPage(){
   $(".body-submit").click(function(event){
     $(".center-body-text").hide(500);
     $("#random-button").hide(500);
+    $(".body-input").addClass("to-top");
+    $(".wrapper").append("<div class='text'>Hi</div>");
   });
 }
 
