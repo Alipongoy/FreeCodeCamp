@@ -46,6 +46,9 @@ function searchPage(){
   // Runs when button is clicked
   $(".body-submit").click(function(event){
     var title = getSearchQuery();
+    var searchArray = parseWiki(title);
+    console.log(searchArray);
+
     $(".center-body-text").hide(500);
     $("#random-button").hide(500);
     $(".body-input").addClass("transition-to-top");
@@ -56,6 +59,27 @@ function searchPage(){
       $(".wrapper").addClass("wrapper-to-top");
       appendTexts();
     }, 750);
+  });
+}
+
+// Responsible for parsing the Wiki document
+// RETURNS: Array of documents
+function parseWiki(title) {
+  var searchQuery = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&generator=search&exsentences=2&exlimit=15&exintro=1&explaintext=3&gsrsearch=" + title + "&gsrlimit=15";
+  var returnArray = [];
+  var ajax = $.ajax({
+    url: searchQuery,
+    dataType: "jsonp",
+    type: "GET"
+  }).done(function(data){
+  var pagesObject = data.query.pages;
+  var pagesKeys = Object.keys(pagesObject);
+
+  pagesKeys.forEach(function(key){
+    returnArray.push(pagesObject[key]);
+  });
+
+  return returnArray;
   });
 }
 
