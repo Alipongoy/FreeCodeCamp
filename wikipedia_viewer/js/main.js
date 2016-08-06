@@ -45,11 +45,37 @@ function searchPage(){
 
   // Runs when button is clicked
   $(".body-submit").click(function(event){
+    var title = getSearchQuery();
     $(".center-body-text").hide(500);
     $("#random-button").hide(500);
-    $(".body-input").addClass("to-top");
-    $(".wrapper").append("<div class='text'>Hi</div>");
+    $(".body-input").addClass("transition-to-top");
+
+    // Wait to add text
+    setTimeout(function(){
+      $(".body-input").removeClass("transition-to-top").addClass("body-to-top");
+      $(".wrapper").addClass("wrapper-to-top");
+      appendTexts();
+    }, 750);
   });
+}
+
+// Gets the title for query searching
+function getSearchQuery(){
+  var searchValue = $(".body-search-bar").val();
+  return searchValue.replace(/ /, "_");
+}
+
+// Appends text
+function appendTexts() {
+  var textModule = document.createElement("div");
+  var header = document.createElement("h1");
+  var paragraph = document.createElement("p");
+  textModule.setAttribute("class", "text");
+  header.textContent = "Hi!";
+  paragraph.textContent = "Bye!";
+  textModule.appendChild(header);
+  textModule.appendChild(paragraph);
+  $(".wrapper").append($(textModule));
 }
 
 // Generates random web page
